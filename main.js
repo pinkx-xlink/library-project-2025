@@ -1,4 +1,5 @@
 let myLibrary = [];
+const bookshelf = document.getElementById('bookshelf');
 
 // Create Book constructor
 function Book(title, author, pages, read, id) {
@@ -37,11 +38,18 @@ function addBookToLibrary(title, author, pages, read, id) {
     return book;
 }
 addBookToLibrary("Guide To Self-Love", "Shy Y", 444, "yes");
+addBookToLibrary("Booook", "Shy Y", 456, "yes");
 
 
 // Write a func that loops through each Book
 // and displays it on the page on its own card
 
+const books = myLibrary.map(obj => {
+    const newEl = document.createElement('div');
+    newEl.textContent = obj.info();
+    return newEl;
+})
+books.forEach(el => bookshelf.appendChild(el));
 
 // Add a New Book btn
 
