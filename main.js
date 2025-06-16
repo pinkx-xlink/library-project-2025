@@ -19,10 +19,7 @@ Book.prototype.sayHello = function() {
 };
 
 
-const myBook = new Book("Guide To Self-Love", "Shy Y", 444, "yes");
-console.log(myBook.info());
 
-myBook.sayHello();
 
 
 // Create a second function that can take arguments
@@ -31,9 +28,13 @@ myBook.sayHello();
 // all books should have a unique id,
 // generated using crypto.randomUUID()
 // (Challenge to self: implement local storage)
-function addBookToLibrary() {
-
+function addBookToLibrary(title, author, pages, read) {
+    const book = new Book(title, author, pages, read);
+    console.log(book);
+    return book;
 }
+addBookToLibrary("Guide To Self-Love", "Shy Y", 444, "yes");
+
 
 // Write a func that loops through each Book
 // and displays it on the page on its own card
