@@ -1,7 +1,7 @@
 const myLibrary = [];
 
 // Create Book constructor
-function Book(title, author, pages, read) {
+function Book(title, author, pages, read, id) {
 if (!new.target) {
         throw Error("You must use the 'new' operator to call the constructor." )
     }
@@ -9,6 +9,7 @@ if (!new.target) {
     this.author = author;
     this.pages = pages;
     this.read = read;
+    this.id = crypto.randomUUID();
     this.info = function() {
         return (`Title: ${this.title} / Author: ${this.author} / Pages: ${this.pages} / Read: ${this.read}`);
     }
@@ -28,8 +29,8 @@ Book.prototype.sayHello = function() {
 // all books should have a unique id,
 // generated using crypto.randomUUID()
 // (Challenge to self: implement local storage)
-function addBookToLibrary(title, author, pages, read) {
-    const book = new Book(title, author, pages, read);
+function addBookToLibrary(title, author, pages, read, id) {
+    const book = new Book(title, author, pages, read, id);
     console.log(book);
     return book;
 }
