@@ -14,6 +14,17 @@ if (!new.target) {
     }
 }
 
+Book.prototype.sayHello = function() {
+    console.log("Hello, I'm a book!");
+};
+
+
+const myBook = new Book("Guide To Self-Love", "Shy Y", 444, "yes");
+console.log(myBook.info());
+
+myBook.sayHello();
+
+
 // Create a second function that can take arguments
 // and create a new book from those args
 // and store the new Book in an array
