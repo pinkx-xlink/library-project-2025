@@ -52,6 +52,26 @@ const books = myLibrary.map(obj => {
 books.forEach(el => bookshelf.appendChild(el));
 
 // Add a New Book btn
+// Select the form elements
+const form = document.getElementById('myForm');
+const titleInput = document.getElementById('title');
+const authorInput = document.getElementById('author');
+const pagesInput = document.getElementById('pages');
+const readInput = document.getElementById('read');
+const output = document.getElementById('output');
+const submitButton = document.getElementById('submitButton');
+
+// Add an event listener to the button
+submitButton.addEventListener('click', () => {
+  const title = titleInput.value.trim();
+  const author = authorInput.value.trim();
+
+  if (title && author) {
+    output.textContent = `Title: ${title}. Author ${author}.`;
+  } else {
+    output.textContent = 'Please fill out all fields.';
+  }
+});
 
 
 // Add a btn on each book to remove it
