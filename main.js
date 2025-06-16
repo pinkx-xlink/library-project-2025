@@ -21,9 +21,6 @@ Book.prototype.sayHello = function() {
 };
 
 
-
-
-
 // Create a second function that can take arguments
 // and create a new book from those args
 // and store the new Book in an array
@@ -65,6 +62,10 @@ const submitButton = document.getElementById('submitButton');
 submitButton.addEventListener('click', () => {
   const title = titleInput.value.trim();
   const author = authorInput.value.trim();
+  const pages = pagesInput.value.trim();
+  const read = readInput.value.trim();
+  const newId = crypto.randomUUID();
+  addBookToLibrary(this.title, this.author, this.pages, this.read, this.newId)
 
   if (title && author) {
     output.textContent = `Title: ${title}. Author ${author}.`;
