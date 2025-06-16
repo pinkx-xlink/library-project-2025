@@ -1,4 +1,4 @@
-const myLibrary = [];
+let myLibrary = [];
 
 // Create Book constructor
 function Book(title, author, pages, read, id) {
@@ -32,6 +32,8 @@ Book.prototype.sayHello = function() {
 function addBookToLibrary(title, author, pages, read, id) {
     const book = new Book(title, author, pages, read, id);
     console.log(book);
+    myLibrary = [...myLibrary, book];
+    console.log(myLibrary);
     return book;
 }
 addBookToLibrary("Guide To Self-Love", "Shy Y", 444, "yes");
