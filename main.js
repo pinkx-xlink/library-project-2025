@@ -134,8 +134,8 @@ const submitButton = document.getElementById('submitButton');
 const newBookConfirmOutput = document.getElementById('add-new-book-container');
 // Add an event listener to the button
 submitButton.addEventListener('click', () => {
-  const newId = crypto.randomUUID();
-  addBookToLibrary(titleInput.value.trim(), authorInput.value.trim(), pagesInput.value.trim(), readInput.value.trim(), this.newId);
+  // const newId = crypto.randomUUID();
+  addBookToLibrary(titleInput.value.trim(), authorInput.value.trim(), pagesInput.value.trim(), readInput.value.trim(), this.id);
   console.log(this.title, this.author, this.pages, this.read, this.newId);
   if (title && author) {
     form.style.display = 'none';
