@@ -41,7 +41,7 @@ Book.prototype.sayHello = function() {
 // and store the new Book in an array
 // all books should have a unique id,
 // generated using crypto.randomUUID()
-// (Challenge to self: implement local storage)
+
 function addBookToLibrary(title, author, pages, read, id) {
     const book = new Book(title, author, pages, read, id);
     console.log(book);
@@ -92,6 +92,7 @@ function renderBooks() {
         return newBook;
     })
     books.forEach(el => bookshelf.appendChild(el));
+    saveLibraryToLocalStorage();
 }
 renderBooks();
 
@@ -122,3 +123,16 @@ submitButton.addEventListener('click', () => {
 // Done! ^
 
 // Add a btn on each book to change its read status
+// Done! ^
+function saveLibraryToLocalStorage() {
+    const jsonString = JSON.stringify(myLibrary);
+    // Store the string
+    localStorage.setItem("myArrayKey", jsonString);
+    // get the string from local storage
+    const storedJsonString = localStorage.getItem("myArrayKey");
+    // Convert the JSON string back to an array
+    const retrievedArray = JSON.parse(storedJsonString);
+    console.log(retrievedArray);
+}
+// (Challenge to self: implement local storage)
+
