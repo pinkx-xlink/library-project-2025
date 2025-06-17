@@ -4,6 +4,9 @@
 body {
     background-color: rgb(192, 191, 191);
 }
+#app {
+    display: flex;
+}
 #add-new-book-container {
     display: flex;
     flex-direction: column;
