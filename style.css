@@ -1,3 +1,9 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+body {
+    background-color: rgb(192, 191, 191);
+}
 #bookshelf {
     background-color: rosybrown;
     display: flex;
