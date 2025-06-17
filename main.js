@@ -14,6 +14,10 @@ if (!new.target) {
     this.info = function() {
         return (`Title: ${this.title} / Author: ${this.author} / Pages: ${this.pages} / Read: ${this.read}`);
     }
+    this.delete = function() {
+        console.log(`${this.id} has been deleted.`);
+        delete this.id;
+    }
 }
 
 Book.prototype.sayHello = function() {
@@ -58,10 +62,6 @@ const readInput = document.getElementById('read');
 const bookCardOutput = document.getElementById('book-card-output');
 const submitButton = document.getElementById('submitButton');
 
-function removeBook(index) {
-    myLibrary.splice(index, 1);
-    // renderItems();
-}
 
 // Add an event listener to the button
 submitButton.addEventListener('click', () => {
@@ -79,16 +79,16 @@ submitButton.addEventListener('click', () => {
     <br>
     Pages: ${pages}. Read: ${read}.
     <div>
-    <button id="delete-book-btn"> X </button>
-    `;
-    const deleteBookBtn = document.getElementById("delete-book-btn");
-    deleteBookBtn.className = 'delete-btn';
     
-    deleteBookBtn.onclick = () => {
-        console.log(myLibrary)
-        deleteBook();
-        console.log(myLibrary)
-    }
+    `;
+    // <button id="delete-book-btn"> X </button>
+    // const deleteBookBtn = document.getElementById("delete-book-btn");
+    // deleteBookBtn.className = 'delete-btn';
+    
+    // deleteBookBtn.onclick = () => {
+    //     console.log(myLibrary);
+    //     this.delete();
+    // }
         
   } else {
     bookCardOutput.textContent = 'Please fill out all fields.';
@@ -97,12 +97,5 @@ submitButton.addEventListener('click', () => {
 
 
 // Add a btn on each book to remove it
-function deleteBook(id) {
-    const bookId = id;
-    const index = myLibrary.indexOf(id);
-    if (index > -1) {
-        myLibrary.splice(index, 1);
-    }
-    return myLibrary;
-}
+
 // Add a btn on each book to change its read status
