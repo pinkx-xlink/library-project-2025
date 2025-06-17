@@ -35,7 +35,7 @@ function addBookToLibrary(title, author, pages, read, id) {
     return book;
 }
 // addBookToLibrary("Guide To Self-Love", "Shy Y", 444, "yes");
-// addBookToLibrary("Booook", "Shy Y", 456, "yes");
+//  addBookToLibrary("Booook", "Shy Y", 456, "yes");
 
 
 // Write a func that loops through each Book
@@ -68,7 +68,9 @@ submitButton.addEventListener('click', () => {
   addBookToLibrary(this.title, this.author, this.pages, this.read, this.newId)
 
   if (title && author) {
-    bookCardOutput.textContent += `Title: ${title}. Author ${author}.`;
+    bookCardOutput.innerHTML += `
+    <p>Title: ${title}. Author ${author}.<p>
+    `;
   } else {
     bookCardOutput.textContent = 'Please fill out all fields.';
   }

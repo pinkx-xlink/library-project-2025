@@ -1,7 +1,13 @@
 #bookshelf {
     background-color: rosybrown;
     display: flex;
+    flex-direction: column;
+    
 }
 #book-card-output {
-    background-color: pink;
+    background-color: #ffc0cb;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
 }
