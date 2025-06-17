@@ -4,13 +4,18 @@
     flex-direction: column;
     
 }
-#book-card-output {
+.new-book {
+    border: 1px solid black;
     background-color: #ffc0cb;
     width: 80%;
     display: flex;
     flex-direction: column;
     text-align: left;
 }
-#book-card-output > div {
-    border: 1px solid black;
+#book-card-output {
+    background-color: #ffc0cb;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
 }

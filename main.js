@@ -49,7 +49,7 @@ function renderBooks() {
     const books = myLibrary.map(obj => {
         const newBook = document.createElement('div');
         newBook.textContent = obj.info();
-        
+        newBook.setAttribute('class', 'new-book');
         return newBook;
     })
     books.forEach(el => bookshelf.appendChild(el));
