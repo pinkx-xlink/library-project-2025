@@ -44,13 +44,15 @@ function addBookToLibrary(title, author, pages, read, id) {
 
 // Write a func that loops through each Book
 // and displays it on the page on its own card
-
-const books = myLibrary.map(obj => {
-    const newEl = document.createElement('div');
-    newEl.textContent = obj.info();
-    return newEl;
-})
-books.forEach(el => bookshelf.appendChild(el));
+function renderBooks() {
+    const books = myLibrary.map(obj => {
+        const newEl = document.createElement('div');
+        newEl.textContent = obj.info();
+        return newEl;
+    })
+    books.forEach(el => bookshelf.appendChild(el));
+}
+renderBooks();
 
 // Add a New Book btn
 // Select the form elements
@@ -81,6 +83,7 @@ submitButton.addEventListener('click', () => {
     <div>
     
     `;
+    console.log(`The library so far: ${myLibrary}`)
     // <button id="delete-book-btn"> X </button>
     // const deleteBookBtn = document.getElementById("delete-book-btn");
     // deleteBookBtn.className = 'delete-btn';
