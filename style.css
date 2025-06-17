@@ -5,6 +5,11 @@ body {
     margin: 0;
     background-color: rgb(192, 191, 191);
 }
+header {
+    background-color: rosybrown;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
 #app {
     display: flex;
 }
@@ -38,7 +43,6 @@ body {
     align-self: center;
 }
 #bookshelf {
-    background-color: rosybrown;
     display: flex;
     flex-direction: column;
     align-items: center;
