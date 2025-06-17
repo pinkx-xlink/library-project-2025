@@ -22,6 +22,13 @@ if (!new.target) {
         console.log(`${this.id} has been deleted.`);
         console.log(myLibrary);
     }
+    this.isRead = function() {
+        if (this.isRead === true) {
+            console.log('READ');
+        } else {
+            console.log("ain't read yet")
+        }
+    }
 }
 
 Book.prototype.sayHello = function() {
@@ -53,6 +60,27 @@ function renderBooks() {
         const newBook = document.createElement('div');
         newBook.textContent = obj.info();
         newBook.setAttribute('class', 'new-book');
+
+        const readStatusBtnLabel = document.createElement('label');
+        readStatusBtnLabel.setAttribute('for', 'read');
+        readStatusBtnLabel.textContent = 'Read?';
+        newBook.appendChild(readStatusBtnLabel);
+        const readStatusBtn = document.createElement('input');
+        readStatusBtn.setAttribute('type', 'checkbox');
+        readStatusBtn.setAttribute('id', 'readStatus');
+        readStatusBtn.setAttribute('name', 'read');
+        readStatusBtn.setAttribute('value', 'yes');
+        newBook.appendChild(readStatusBtn);
+        readStatusBtn.addEventListener('change', function(event) {
+            if (event.target.checked) {
+                this.isRead = true;
+                console.log('YIPPEE');
+            } else {
+                this.isRead = false;
+            }
+        })
+        
+
         const deleteBookBtn = document.createElement('button');
         deleteBookBtn.className = 'delete-btn';
         deleteBookBtn.textContent = 'x';
