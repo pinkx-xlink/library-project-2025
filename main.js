@@ -21,8 +21,6 @@ if (!new.target) {
         }
         console.log(`${this.id} has been deleted.`);
         console.log(myLibrary);
-        
-        // delete this.id;
     }
 }
 
@@ -46,7 +44,6 @@ function addBookToLibrary(title, author, pages, read, id) {
 }
 addBookToLibrary("Guide To Self-Love", "Shy Y", 444, "yes");
 //  addBookToLibrary("Booook", "Shy Y", 456, "yes");
-
 
 // Write a func that loops through each Book
 // and displays it on the page on its own card
@@ -80,7 +77,6 @@ const readInput = document.getElementById('read');
 const bookCardOutput = document.getElementById('book-card-output');
 const submitButton = document.getElementById('submitButton');
 
-
 // Add an event listener to the button
 submitButton.addEventListener('click', () => {
   const newId = crypto.randomUUID();
@@ -88,15 +84,6 @@ submitButton.addEventListener('click', () => {
   console.log(this.title, this.author, this.pages, this.read, this.newId);
   if (title && author) {
     renderBooks();
-    // <button id="delete-book-btn"> X </button>
-    // const deleteBookBtn = document.getElementById("delete-book-btn");
-    // deleteBookBtn.className = 'delete-btn';
-    
-    // deleteBookBtn.onclick = () => {
-    //     console.log(myLibrary);
-    //     this.delete();
-    // }
-        
   } else {
     bookCardOutput.textContent = 'Please fill out all fields.';
   }
@@ -104,5 +91,6 @@ submitButton.addEventListener('click', () => {
 
 
 // Add a btn on each book to remove it
+// Done! ^
 
 // Add a btn on each book to change its read status
