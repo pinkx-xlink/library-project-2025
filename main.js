@@ -68,7 +68,7 @@ submitButton.addEventListener('click', () => {
   addBookToLibrary(this.title, this.author, this.pages, this.read, this.newId)
 
   if (title && author) {
-    output.textContent = `Title: ${title}. Author ${author}.`;
+    output.textContent += `Title: ${title}. Author ${author}.`;
   } else {
     output.textContent = 'Please fill out all fields.';
   }
