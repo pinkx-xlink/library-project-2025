@@ -124,15 +124,21 @@ submitButton.addEventListener('click', () => {
 
 // Add a btn on each book to change its read status
 // Done! ^
+
+// (Challenge to self: implement local storage)
 function saveLibraryToLocalStorage() {
     const jsonString = JSON.stringify(myLibrary);
     // Store the string
     localStorage.setItem("myArrayKey", jsonString);
     // get the string from local storage
     const storedJsonString = localStorage.getItem("myArrayKey");
+    if (storedJsonString) {
     // Convert the JSON string back to an array
-    const retrievedArray = JSON.parse(storedJsonString);
-    console.log(retrievedArray);
+        const retrievedArray = JSON.parse(storedJsonString);
+        console.log(retrievedArray);
+    } else {
+        console.log("no date found in local storage.")
+    }
 }
-// (Challenge to self: implement local storage)
+
 
