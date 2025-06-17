@@ -50,6 +50,11 @@ function renderBooks() {
         const newBook = document.createElement('div');
         newBook.textContent = obj.info();
         newBook.setAttribute('class', 'new-book');
+        const deleteBookBtn = document.createElement('button');
+        deleteBookBtn.className = 'delete-btn';
+        deleteBookBtn.textContent = 'x';
+        newBook.appendChild(deleteBookBtn);
+        deleteBookBtn.onclick = newBook.delete;
         return newBook;
     })
     books.forEach(el => bookshelf.appendChild(el));
