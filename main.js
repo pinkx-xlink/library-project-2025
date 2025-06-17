@@ -58,6 +58,11 @@ const readInput = document.getElementById('read');
 const bookCardOutput = document.getElementById('book-card-output');
 const submitButton = document.getElementById('submitButton');
 
+function removeBook(index) {
+    myLibrary.splice(index, 1);
+    // renderItems();
+}
+
 // Add an event listener to the button
 submitButton.addEventListener('click', () => {
   const title = titleInput.value.trim();
@@ -74,7 +79,16 @@ submitButton.addEventListener('click', () => {
     <br>
     Pages: ${pages}. Read: ${read}.
     <div>
+    <button id="delete-book-btn"> X </button>
     `;
+    const deleteBookBtn = document.getElementById("delete-book-btn");
+    deleteBookBtn.className = 'delete-btn';
+    
+    deleteBookBtn.onclick = () => {
+        removeBook(myLibrary.index);
+        console.log('hi')
+    }
+        
   } else {
     bookCardOutput.textContent = 'Please fill out all fields.';
   }
