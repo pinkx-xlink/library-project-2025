@@ -45,11 +45,12 @@ addBookToLibrary("Guide To Self-Love", "Shy Y", 444, "yes");
 // Write a func that loops through each Book
 // and displays it on the page on its own card
 function renderBooks() {
+   // bookshelf.innerHTML = '';
     const books = myLibrary.map(obj => {
-        const newEl = document.createElement('div');
-        newEl.textContent = obj.info();
+        const newBook = document.createElement('div');
+        newBook.textContent = obj.info();
         
-        return newEl;
+        return newBook;
     })
     books.forEach(el => bookshelf.appendChild(el));
 }
@@ -73,7 +74,6 @@ submitButton.addEventListener('click', () => {
   console.log(this.title, this.author, this.pages, this.read, this.newId);
   if (title && author) {
     renderBooks();
-    console.log(`The library so far: ${myLibrary}`)
     // <button id="delete-book-btn"> X </button>
     // const deleteBookBtn = document.getElementById("delete-book-btn");
     // deleteBookBtn.className = 'delete-btn';
