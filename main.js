@@ -52,6 +52,23 @@ function addBookToLibrary(title, author, pages, read, id) {
 addBookToLibrary("Guide To Self-Love", "Shy Y", 444, "yes");
 //  addBookToLibrary("Booook", "Shy Y", 456, "yes");
 
+
+   function fadeIn(element, duration) {
+        let opacity = 0;
+        element.style.opacity = opacity;
+        const interval = 50; // ms
+        const increment = interval / duration;
+
+        const fade = setInterval(() => {
+            opacity += increment;
+            if (opacity >= 1) {
+                opacity = 1;
+                clearInterval(fade);
+            }
+            element.style.opacity = opacity;
+        }, interval);
+    }
+
 // Write a func that loops through each Book
 // and displays it on the page on its own card
 function renderBooks() {
@@ -61,6 +78,7 @@ function renderBooks() {
         newBook.textContent = obj.info();
         newBook.setAttribute('class', 'new-book');
 
+        // fadeIn(newBook, 1000);
         const readStatusBtnLabel = document.createElement('label');
         readStatusBtnLabel.setAttribute('for', 'read');
         readStatusBtnLabel.textContent = 'Read?';
@@ -96,9 +114,16 @@ function renderBooks() {
 }
 renderBooks();
 
-// Add a New Book btn
-// Select the form elements
 const form = document.getElementById('myForm');
+form.style.display = 'none';
+// Add a New Book btn
+const showNewBookFormBtn = document.getElementById('show-new-book-form-btn');
+showNewBookFormBtn.onclick = () => {
+    form.style.display = 'block';
+    fadeIn(form, 1000);
+    console.log('unhide')
+};
+// Select the form elements
 const titleInput = document.getElementById('title');
 const authorInput = document.getElementById('author');
 const pagesInput = document.getElementById('pages');
@@ -112,6 +137,7 @@ submitButton.addEventListener('click', () => {
   addBookToLibrary(titleInput.value.trim(), authorInput.value.trim(), pagesInput.value.trim(), readInput.value.trim(), this.newId);
   console.log(this.title, this.author, this.pages, this.read, this.newId);
   if (title && author) {
+    form.style.display = 'none';
     renderBooks();
   } else {
     bookCardOutput.textContent = 'Please fill out all fields.';
