@@ -131,6 +131,7 @@ const readInput = document.getElementById('read');
 const bookCardOutput = document.getElementById('book-card-output');
 const submitButton = document.getElementById('submitButton');
 
+const newBookConfirmOutput = document.getElementById('new-book-confirmation-output')
 // Add an event listener to the button
 submitButton.addEventListener('click', () => {
   const newId = crypto.randomUUID();
@@ -138,6 +139,12 @@ submitButton.addEventListener('click', () => {
   console.log(this.title, this.author, this.pages, this.read, this.newId);
   if (title && author) {
     form.style.display = 'none';
+    const bookAddedConfirmation = document.createElement('p');
+    bookAddedConfirmation.textContent = 'New book added to library';
+    newBookConfirmOutput.appendChild(bookAddedConfirmation);
+    setTimeout(() => {
+        bookAddedConfirmation.remove();
+    }, 3000);
     renderBooks();
   } else {
     bookCardOutput.textContent = 'Please fill out all fields.';
