@@ -55,7 +55,7 @@ const titleInput = document.getElementById('title');
 const authorInput = document.getElementById('author');
 const pagesInput = document.getElementById('pages');
 const readInput = document.getElementById('read');
-const output = document.getElementById('output');
+const bookCardOutput = document.getElementById('book-card-output');
 const submitButton = document.getElementById('submitButton');
 
 // Add an event listener to the button
@@ -68,9 +68,9 @@ submitButton.addEventListener('click', () => {
   addBookToLibrary(this.title, this.author, this.pages, this.read, this.newId)
 
   if (title && author) {
-    output.textContent += `Title: ${title}. Author ${author}.`;
+    bookCardOutput.textContent += `Title: ${title}. Author ${author}.`;
   } else {
-    output.textContent = 'Please fill out all fields.';
+    bookCardOutput.textContent = 'Please fill out all fields.';
   }
 });
 
