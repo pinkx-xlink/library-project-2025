@@ -1,0 +1,7 @@
+#bookshelf {
+    background-color: rosybrown;
+    display: flex;
+}
+#book-card-output {
+    background-color: pink;
+}

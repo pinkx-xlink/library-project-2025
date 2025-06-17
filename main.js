@@ -34,8 +34,8 @@ function addBookToLibrary(title, author, pages, read, id) {
     console.log(myLibrary);
     return book;
 }
-addBookToLibrary("Guide To Self-Love", "Shy Y", 444, "yes");
-addBookToLibrary("Booook", "Shy Y", 456, "yes");
+// addBookToLibrary("Guide To Self-Love", "Shy Y", 444, "yes");
+// addBookToLibrary("Booook", "Shy Y", 456, "yes");
 
 
 // Write a func that loops through each Book
