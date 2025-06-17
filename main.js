@@ -15,8 +15,14 @@ if (!new.target) {
         return (`Title: ${this.title} / Author: ${this.author} / Pages: ${this.pages} / Read: ${this.read} / Id: ${this.id}`);
     }
     this.delete = function() {
+        const bookToRemove = myLibrary.findIndex(obj => obj.id === this.id);
+        if (bookToRemove !== -1) {
+            myLibrary.splice(bookToRemove, 1);
+        }
         console.log(`${this.id} has been deleted.`);
-        delete this.id;
+        console.log(myLibrary);
+        
+        // delete this.id;
     }
 }
 
@@ -45,7 +51,7 @@ addBookToLibrary("Guide To Self-Love", "Shy Y", 444, "yes");
 // Write a func that loops through each Book
 // and displays it on the page on its own card
 function renderBooks() {
-   // bookshelf.innerHTML = '';
+   bookshelf.innerHTML = '';
     const books = myLibrary.map(obj => {
         const newBook = document.createElement('div');
         newBook.textContent = obj.info();
@@ -54,7 +60,10 @@ function renderBooks() {
         deleteBookBtn.className = 'delete-btn';
         deleteBookBtn.textContent = 'x';
         newBook.appendChild(deleteBookBtn);
-        deleteBookBtn.onclick = newBook.delete;
+        deleteBookBtn.onclick = () => {
+            obj.delete();
+            renderBooks();
+        } 
         return newBook;
     })
     books.forEach(el => bookshelf.appendChild(el));
