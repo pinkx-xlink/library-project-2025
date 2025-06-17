@@ -12,7 +12,7 @@ if (!new.target) {
     this.read = read;
     this.id = crypto.randomUUID();
     this.info = function() {
-        return (`Title: ${this.title} / Author: ${this.author} / Pages: ${this.pages} / Read: ${this.read}`);
+        return (`Title: ${this.title} / Author: ${this.author} / Pages: ${this.pages} / Read: ${this.read} / Id: ${this.id}`);
     }
     this.delete = function() {
         console.log(`${this.id} has been deleted.`);
@@ -38,7 +38,7 @@ function addBookToLibrary(title, author, pages, read, id) {
     console.log(myLibrary);
     return book;
 }
-// addBookToLibrary("Guide To Self-Love", "Shy Y", 444, "yes");
+addBookToLibrary("Guide To Self-Love", "Shy Y", 444, "yes");
 //  addBookToLibrary("Booook", "Shy Y", 456, "yes");
 
 
@@ -48,6 +48,7 @@ function renderBooks() {
     const books = myLibrary.map(obj => {
         const newEl = document.createElement('div');
         newEl.textContent = obj.info();
+        
         return newEl;
     })
     books.forEach(el => bookshelf.appendChild(el));
@@ -67,22 +68,11 @@ const submitButton = document.getElementById('submitButton');
 
 // Add an event listener to the button
 submitButton.addEventListener('click', () => {
-  const title = titleInput.value.trim();
-  const author = authorInput.value.trim();
-  const pages = pagesInput.value.trim();
-  const read = readInput.value.trim();
   const newId = crypto.randomUUID();
-  addBookToLibrary(this.title, this.author, this.pages, this.read, this.newId)
-
+  addBookToLibrary(titleInput.value.trim(), authorInput.value.trim(), pagesInput.value.trim(), readInput.value.trim(), this.newId);
+  console.log(this.title, this.author, this.pages, this.read, this.newId);
   if (title && author) {
-    bookCardOutput.innerHTML += `
-    <div>
-    Title: ${title}. Author ${author}.
-    <br>
-    Pages: ${pages}. Read: ${read}.
-    <div>
-    
-    `;
+    renderBooks();
     console.log(`The library so far: ${myLibrary}`)
     // <button id="delete-book-btn"> X </button>
     // const deleteBookBtn = document.getElementById("delete-book-btn");
