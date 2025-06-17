@@ -85,8 +85,9 @@ submitButton.addEventListener('click', () => {
     deleteBookBtn.className = 'delete-btn';
     
     deleteBookBtn.onclick = () => {
-        removeBook(myLibrary.index);
-        console.log('hi')
+        console.log(myLibrary)
+        deleteBook();
+        console.log(myLibrary)
     }
         
   } else {
@@ -96,5 +97,12 @@ submitButton.addEventListener('click', () => {
 
 
 // Add a btn on each book to remove it
-
+function deleteBook(id) {
+    const bookId = id;
+    const index = myLibrary.indexOf(id);
+    if (index > -1) {
+        myLibrary.splice(index, 1);
+    }
+    return myLibrary;
+}
 // Add a btn on each book to change its read status
