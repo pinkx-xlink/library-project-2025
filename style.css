@@ -11,3 +11,6 @@
     flex-direction: column;
     text-align: left;
 }
+#book-card-output > div {
+    border: 1px solid black;
+}

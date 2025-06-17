@@ -69,7 +69,11 @@ submitButton.addEventListener('click', () => {
 
   if (title && author) {
     bookCardOutput.innerHTML += `
-    <p>Title: ${title}. Author ${author}.<p>
+    <div>
+    Title: ${title}. Author ${author}.
+    <br>
+    Pages: ${pages}. Read: ${read}.
+    <div>
     `;
   } else {
     bookCardOutput.textContent = 'Please fill out all fields.';
