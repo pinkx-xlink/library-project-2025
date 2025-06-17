@@ -131,7 +131,7 @@ const readInput = document.getElementById('read');
 const bookCardOutput = document.getElementById('book-card-output');
 const submitButton = document.getElementById('submitButton');
 
-const newBookConfirmOutput = document.getElementById('new-book-confirmation-output')
+const newBookConfirmOutput = document.getElementById('add-new-book-container');
 // Add an event listener to the button
 submitButton.addEventListener('click', () => {
   const newId = crypto.randomUUID();

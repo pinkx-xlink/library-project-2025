@@ -8,9 +8,11 @@
 </head>
 <body>
     <script src="main.js" defer></script>
-  <button id="show-new-book-form-btn">Add a book</button>
-
-  <div id="new-book-confirmation-output"></div>
+  
+<div class="sidebar">
+  <div id="add-new-book-container">
+    <button id="show-new-book-form-btn">Add a book</button>
+  </div>
  <form id="myForm">
     <label for="title">Title:</label>
     <input type="text" id="title" name="title" placeholder="Enter the title" required>
@@ -26,6 +28,8 @@
     <br><br>
     <button type="button" id="submitButton">Submit</button>
   </form>
+</div>
+
 
   <div id="bookshelf">Bookshelf
     <p id="book-card-output"></p>
